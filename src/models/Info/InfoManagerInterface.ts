@@ -1,8 +1,7 @@
 import {InfoServiceInterface} from './InfoServiceInterface';
 
 export interface InfoManagerInterface {
-  get (index): InfoServiceInterface;
-  all (): InfoServiceInterface[];
+  get (serviceName: String): InfoServiceInterface;
   add (service: InfoServiceInterface);
   set(services: InfoServiceInterface[]);
 }

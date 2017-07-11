@@ -1,8 +1,7 @@
 import {PostServiceInterface} from './PostServiceInterface';
 
 export interface PostManagerInterface {
-  get(index): PostServiceInterface;
-  all (): PostServiceInterface[];
-  set(service: PostServiceInterface);
+  get(serviceName: String): PostServiceInterface;
+  set(services: PostServiceInterface[]);
   add (service: PostServiceInterface);
 }

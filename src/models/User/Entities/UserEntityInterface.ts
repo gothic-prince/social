@@ -1,10 +1,10 @@
 import {InfoManagerInterface} from '../../Info/InfoManagerInterface';
 import {UserManagerInterface} from '../UserManagerInterface';
-import {ImageManagerInterface} from '../../Image/ImageManagerInterface';
+import {PostManagerInterface} from '../../Post/PostManagerInterface';
 
 export interface UserEntityInterface {
   getUserManager(): UserManagerInterface;
   getInfoManager(): InfoManagerInterface;
-  getImageManager (): ImageManagerInterface;
-  getId (): number;
+  getPostManager (): PostManagerInterface;
+  getId (): Number;
 }

@@ -1,6 +1,7 @@
 import {FileManagerInterface} from '../../File/FileManagerInterface';
 import {InfoManagerInterface} from '../../Info/InfoManagerInterface';
 import {PostManagerInterface} from '../PostManagerInterface';
+import {UserManagerInterface} from '../../User/UserManagerInterface';
 
 export interface PostEntityInterface {
   getDate (): Date;
@@ -13,8 +14,12 @@ export interface PostEntityInterface {
    */
   getFileManager (): FileManagerInterface;
   /**
-   * Should be returned PostManagerInterface, which has quote, repost or copy message
+   * Should be returned PostManagerInterface, which has quote, comments, repost or copy message
    */
   getPostManager (): PostManagerInterface;
+  /**
+   * Should be returned UserManagerInterface, which has author, group
+   */
+  getUserManager (): UserManagerInterface;
   getId (): Number;
 }
