@@ -1,4 +1,6 @@
 import {InfoServiceInterface} from './InfoServiceInterface';
+import {InfoEntityInterface} from './Entities/InfoEntityInterface';
+
 export class InfoService implements InfoServiceInterface {
   static CATEGORY_USERNAME = 'USERNAME';
   static CATEGORY_AGE = 'AGE';
@@ -7,15 +9,15 @@ export class InfoService implements InfoServiceInterface {
   static CATEGORY_PHONE = 'PHONE';
   static CATEGORY_EMAIL = 'EMAIL';
   private serviceName: String;
-  private info: String[] = [];
-  constructor(serviceName: String, info: String[]) {
+  private info: InfoEntityInterface;
+  constructor(serviceName: String, info: InfoEntityInterface) {
     this.serviceName = serviceName;
     this.info = info;
   }
   getName(): String {
     return this.serviceName;
   }
-  getInfo(): String[] {
+  getInfo(): InfoEntityInterface {
     return this.info;
   }
 }

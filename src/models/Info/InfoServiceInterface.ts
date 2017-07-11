@@ -1,4 +1,5 @@
+import {InfoEntityInterface} from './Entities/InfoEntityInterface';
 export interface InfoServiceInterface {
   getName (): String;
-  getInfo (): String[];
+  getInfo (): InfoEntityInterface;
 }
