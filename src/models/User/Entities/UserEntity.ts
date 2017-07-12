@@ -1,7 +1,7 @@
 import {UserEntityInterface} from './UserEntityInterface';
-import {UserManagerInterface} from '../UserManagerInterface';
-import {InfoManagerInterface} from '../../Info/InfoManagerInterface';
-import {PostManagerInterface} from '../../Post/PostManagerInterface';
+import {UserManagerInterface} from '../UserManager/UserManagerInterface';
+import {InfoManagerInterface} from '../../Info/InfoManager/InfoManagerInterface';
+import {PostManagerInterface} from '../../Post/PostManager/PostManagerInterface';
 
 export class UserEntity implements UserEntityInterface {
   private user: UserManagerInterface;

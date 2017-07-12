@@ -1,6 +1,6 @@
-import {InfoManagerInterface} from '../../Info/InfoManagerInterface';
-import {UserManagerInterface} from '../UserManagerInterface';
-import {PostManagerInterface} from '../../Post/PostManagerInterface';
+import {UserManagerInterface} from '../UserManager/UserManagerInterface';
+import {InfoManagerInterface} from '../../Info/InfoManager/InfoManagerInterface';
+import {PostManagerInterface} from '../../Post/PostManager/PostManagerInterface';
 
 export interface UserEntityInterface {
   getUserManager(): UserManagerInterface;

@@ -1,7 +1,7 @@
 import {UserEntity} from './UserEntity';
-import {UserManager} from '../UserManager';
-import {PostManager} from '../../Post/PostManager';
-import {InfoManager} from '../../Info/InfoManager';
+import {UserManager} from '../UserManager/UserManager';
+import {PostManager} from '../../Post/PostManager/PostManager';
+import {InfoManager} from '../../Info/InfoManager/InfoManager';
 describe('UserEntity', () => {
   const userManager = new UserManager();
   const postManager = new PostManager();

@@ -1,8 +1,8 @@
 import {PostEntity} from './PostEntity';
-import {UserManager} from '../../User/UserManager';
-import {PostManager} from '../PostManager';
-import {FileManager} from '../../File/FileManager';
-import {InfoManager} from '../../Info/InfoManager';
+import {InfoManager} from '../../Info/InfoManager/InfoManager';
+import {FileManager} from '../../File/FileManager/FileManager';
+import {PostManager} from '../PostManager/PostManager';
+import {UserManager} from '../../User/UserManager/UserManager';
 describe('PostEntity', () => {
   const info = new InfoManager();
   const file = new FileManager();

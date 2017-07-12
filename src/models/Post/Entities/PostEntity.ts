@@ -1,8 +1,8 @@
 import {PostEntityInterface} from './PostEntityInterface';
-import {PostManagerInterface} from '../PostManagerInterface';
-import {FileManagerInterface} from '../../File/FileManagerInterface';
-import {InfoManagerInterface} from '../../Info/InfoManagerInterface';
-import {UserManagerInterface} from '../../User/UserManagerInterface';
+import {InfoManagerInterface} from '../../Info/InfoManager/InfoManagerInterface';
+import {FileManagerInterface} from '../../File/FileManager/FileManagerInterface';
+import {PostManagerInterface} from '../PostManager/PostManagerInterface';
+import {UserManagerInterface} from '../../User/UserManager/UserManagerInterface';
 
 export class PostEntity implements PostEntityInterface {
   private date: Date;

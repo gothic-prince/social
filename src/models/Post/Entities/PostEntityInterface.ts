@@ -1,8 +1,7 @@
-import {FileManagerInterface} from '../../File/FileManagerInterface';
-import {InfoManagerInterface} from '../../Info/InfoManagerInterface';
-import {PostManagerInterface} from '../PostManagerInterface';
-import {UserManagerInterface} from '../../User/UserManagerInterface';
-
+import {InfoManagerInterface} from '../../Info/InfoManager/InfoManagerInterface';
+import {FileManagerInterface} from '../../File/FileManager/FileManagerInterface';
+import {PostManagerInterface} from '../PostManager/PostManagerInterface';
+import {UserManagerInterface} from '../../User/UserManager/UserManagerInterface';
 export interface PostEntityInterface {
   getDate (): Date;
   /**

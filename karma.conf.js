@@ -19,6 +19,18 @@ module.exports = function (config) {
       reports: [ 'html', 'lcovonly' ],
       fixWebpackSourcePaths: true
     },
+    files : [
+      {pattern: '/home/pavel/Sites/social/src/models/User/Mock/json/**/*.json', watched: false, included: false, served: true},
+      {pattern: '/home/pavel/Sites/social/src/models/Post/Mock/json/**/*.json', watched: false, included: false, served: true},
+      {pattern: '/home/pavel/Sites/social/src/models/Info/Mock/json/**/*.json', watched: false, included: false, served: true},
+      {pattern: '/home/pavel/Sites/social/src/models/File/Mock/json/**/*.json', watched: false, included: false, served: true},
+    ],
+    proxies: {
+      '/users/': '/home/pavel/Sites/social/src/models/User/Mock/json',
+      '/posts/': '/home/pavel/Sites/social/src/models/Post/Mock/json',
+      '/info/': '/home/pavel/Sites/social/src/models/Info/Mock/json',
+      '/files/': '/home/pavel/Sites/social/src/models/File/Mock/json',
+    },
     angularCli: {
       environment: 'dev'
     },
