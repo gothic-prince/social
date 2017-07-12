@@ -6,24 +6,35 @@ import {PostManager} from '../../Post/PostManager/PostManager';
 import {UserEntityInterface} from '../Entities/UserEntityInterface';
 export class UserServiceHttp extends UserService {
   protected fetched = false;
+  protected url: string;
+  protected success = () => {};
+  protected error = (message: String) => {};
   constructor(serviceName: String, url: string, success = () => {}, error = (message: String) => {}) {
     super(serviceName, []);
-    this.fetch(url, success, error);
+    this.success = success;
+    this.error = error;
+    this.url = url;
   }
-  protected fetch (url, success = () => {}, error = (message: String) => {}) {
+  public getUrl () {
+    return this.url;
+  }
+  public fetch () {
     try {
-      fetch(url).then((data) => {
+      fetch(this.getUrl()).then((data) => {
         data.json().then((users) => {
           this.setUsers(this.jsonToObject(users));
-          success();
+          this.success();
+          this.fetched = true;
         }).catch(() => {
-          error('ERROR: JsonParse')
+          this.error('ERROR: JsonParse');
+          this.fetched = true;
         })
       }).catch(() => {
-        error('ERROR: NotFound')
+        this.error('ERROR: NotFound');
+        this.fetched = true;
       });
     } catch (e) {
-      error(e.message);
+      this.error(e.message);
     }
   }
   protected jsonToObject (users): UserEntityInterface[] {

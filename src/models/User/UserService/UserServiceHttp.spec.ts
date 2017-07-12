@@ -10,6 +10,7 @@ describe('UserServiceBackend', () => {
     }, (message) => {
       console.error(message);
     });
+    userService.fetch();
   });
   it ('Should return 2 friends', (done) => {
     const userService = new UserServiceHttp(UserService.TYPE_CURRENT, '/users/find/100/friends.json', () => {
@@ -22,6 +23,7 @@ describe('UserServiceBackend', () => {
     }, (message) => {
       console.error(message);
     });
+    userService.fetch();
   });
   it ('Should return 1 friends: 102', (done) => {
     const userService = new UserServiceHttp(UserService.TYPE_CURRENT, '/users/find/102/friends.json', () => {
@@ -32,6 +34,7 @@ describe('UserServiceBackend', () => {
     }, (message) => {
       console.error(message);
     });
+    userService.fetch();
   });
   it ('Should return 1 friends. 103', (done) => {
     const userService = new UserServiceHttp(UserService.TYPE_CURRENT, '/users/find/103/friends.json', () => {
@@ -42,6 +45,7 @@ describe('UserServiceBackend', () => {
     }, (message) => {
       console.error(message);
     });
+    userService.fetch();
   });
   it ('Should return 0 subscribers', (done) => {
     const userService = new UserServiceHttp(UserService.TYPE_CURRENT, '/users/find/100/subscribers.json', () => {
@@ -50,6 +54,7 @@ describe('UserServiceBackend', () => {
     }, (message) => {
       console.error(message);
     });
+    userService.fetch();
   });
   it ('Should return 1 subscribers: 102', (done) => {
     const userService = new UserServiceHttp(UserService.TYPE_CURRENT, '/users/find/102/subscribers.json', () => {
@@ -60,6 +65,7 @@ describe('UserServiceBackend', () => {
     }, (message) => {
       console.error(message);
     });
+    userService.fetch();
   });
   it ('Should return 0 subscribers: 103', (done) => {
     const userService = new UserServiceHttp(UserService.TYPE_CURRENT, '/users/find/103/subscribers.json', () => {
@@ -68,5 +74,6 @@ describe('UserServiceBackend', () => {
     }, (message) => {
       console.error(message);
     });
+    userService.fetch();
   });
 });
