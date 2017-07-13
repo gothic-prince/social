@@ -24,12 +24,13 @@ module.exports = function (config) {
       {pattern: '/home/pavel/Sites/social/src/models/Post/Mock/json/**/*.json', watched: false, included: false, served: true},
       {pattern: '/home/pavel/Sites/social/src/models/Info/Mock/json/**/*.json', watched: false, included: false, served: true},
       {pattern: '/home/pavel/Sites/social/src/models/File/Mock/json/**/*.json', watched: false, included: false, served: true},
+      // http://localhost:9877/home/pavel/Sites/social/src/models/User/Mock/json/current.json
     ],
     proxies: {
-      '/users/': '/home/pavel/Sites/social/src/models/User/Mock/json',
-      '/posts/': '/home/pavel/Sites/social/src/models/Post/Mock/json',
-      '/info/': '/home/pavel/Sites/social/src/models/Info/Mock/json',
-      '/files/': '/home/pavel/Sites/social/src/models/File/Mock/json',
+      '/users/': 'http://localhost:9877/home/pavel/Sites/social/src/models/User/Mock/json/',
+      '/posts/': 'http://localhost:9877/home/pavel/Sites/social/src/models/Post/Mock/json/',
+      '/info/':  'http://localhost:9877/home/pavel/Sites/social/src/models/Info/Mock/json/',
+      '/files/': 'http://localhost:9877/home/pavel/Sites/social/src/models/File/Mock/json/',
     },
     angularCli: {
       environment: 'dev'

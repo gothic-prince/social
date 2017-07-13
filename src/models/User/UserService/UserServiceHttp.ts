@@ -34,7 +34,7 @@ export class UserServiceHttp extends UserService {
         this.fetched = true;
       });
     } catch (e) {
-      this.error(e.message);
+      this.error('ERROR: SYS: ' + e.message);
     }
   }
   protected jsonToObject (users): UserEntityInterface[] {
