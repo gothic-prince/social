@@ -27,7 +27,9 @@
 # misc
 /.sass-cache
 /connect.lock
+/karma.conf.js
 /coverage
+/yarn.lock
 /libpeerconnection.log
 npm-debug.log
 testem.log
