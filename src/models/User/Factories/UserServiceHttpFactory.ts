@@ -1,6 +1,12 @@
 import {UserServiceInterface} from '../UserService/UserServiceInterface';
 import {UserServiceHttp} from '../UserService/UserServiceHttp';
 import {UserServiceHttpFactoryInterface} from './UserServiceHttpFactoryInterface';
+import {BlockedUserFetchModel} from '../FetchModel/BlockedUserFetchModel';
+import {FetchModelInterface} from '../../Fetch/FetchModelInterface';
+import {CurrentUserFetchModel} from '../FetchModel/CurrentUserFetchModel';
+import {FriendsUserFetchModel} from '../FetchModel/FriendsUserFetchModel';
+import {LikedUserFetchModel} from '../FetchModel/LikedUserFetchModel';
+import {SubscribersUserFetchModel} from '../FetchModel/SubscribersUserFetchModel';
 export class UserServiceHttpFactory implements UserServiceHttpFactoryInterface {
   static CATEGORY_CURRENT = 'CURRENT';
   static CATEGORY_FRIENDS = 'FRIENDS';
@@ -8,28 +14,28 @@ export class UserServiceHttpFactory implements UserServiceHttpFactoryInterface {
   static CATEGORY_LIKES = 'LIKES';
   static CATEGORY_BLACKLIST = 'BLACKLIST';
   getUserService(serviceName: String, id: Number): UserServiceInterface {
-    let url: string;
+    let fetchModel: FetchModelInterface;
     switch (serviceName) {
       case UserServiceHttpFactory.CATEGORY_CURRENT:
-        url = '/users/current.json';
+        fetchModel = new CurrentUserFetchModel();
         break;
       case UserServiceHttpFactory.CATEGORY_FRIENDS:
-        url = '/users/find/' + id + '/friends.json';
+        fetchModel = new FriendsUserFetchModel(id);
         break;
       case UserServiceHttpFactory.CATEGORY_SUBSCRIBERS:
-        url = '/users/find/' + id + '/subscribers.json';
+        fetchModel = new SubscribersUserFetchModel(id);
         break;
       case UserServiceHttpFactory.CATEGORY_LIKES:
         const postId = id
-        url = '/users/find/' + postId + '/likes.json';
+        fetchModel = new LikedUserFetchModel(id);
         break;
       case UserServiceHttpFactory.CATEGORY_BLACKLIST:
-        url = '/users/find/' + id + '/blacklist.json';
+        fetchModel = new BlockedUserFetchModel(id);
         break;
       default:
         return null;
     }
-    return new UserServiceHttp(serviceName, url, this.getSuccessFunc(), this.getErrorFunc());
+    return new UserServiceHttp(serviceName, fetchModel);
   }
   getSuccessFunc(): any {
     return () => {};
