@@ -23,12 +23,7 @@ export class UserServiceHttp extends UserService {
     this.setUsers(
       users.map((userData) => {
         const id: Number = userData.id;
-        if (UserServiceHttp.getFromStore(id) === null) {
-          UserServiceHttp.addToStore(
-            new UserEntity(new UserManager(), new InfoManager(), new PostManager(), id)
-          );
-        }
-        return UserServiceHttp.getFromStore(id);
+        return this.storage.add(id, new UserEntity(new UserManager(), new InfoManager(), new PostManager(), id));
       })
     );
   }

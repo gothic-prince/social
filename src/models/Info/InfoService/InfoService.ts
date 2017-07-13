@@ -19,4 +19,7 @@ export class InfoService implements InfoServiceInterface {
   getInfo(): InfoEntityInterface {
     return this.info;
   }
+  setInfo(info: InfoEntityInterface) {
+    return this.info = info;
+  }
 }

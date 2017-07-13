@@ -3,13 +3,16 @@ import {UserServiceHttp} from './UserServiceHttp';
 import {CurrentUserFetchModel} from '../FetchModel/CurrentUserFetchModel';
 import {FriendsUserFetchModel} from '../FetchModel/FriendsUserFetchModel';
 import {SubscribersUserFetchModel} from '../FetchModel/SubscribersUserFetchModel';
+import {StorageEntitiesUser} from 'models/StorageEntities/StorageEntitiesUser';
 describe('UserServiceBackend', () => {
+  const storage = new StorageEntitiesUser();
+  storage.reset();
   it ('Should return current user: 100', (done) => {
     const userService = new UserServiceHttp(UserService.TYPE_CURRENT, new CurrentUserFetchModel());
     userService.fetch(() => {
       expect(userService.getUsers().length).toBe(1);
       expect(userService.getUsers()[0].getId()).toBe(100);
-      expect(userService.getUsers()[0]).toBe(UserServiceHttp.getFromStore(100));
+      expect(userService.getUsers()[0]).toBe(storage.get(100));
       done();
     });
   });
@@ -18,9 +21,9 @@ describe('UserServiceBackend', () => {
     userService.fetch(() => {
       expect(userService.getUsers().length).toBe(2);
       expect(userService.getUsers()[0].getId()).toBe(102);
-      expect(userService.getUsers()[0]).toBe(UserServiceHttp.getFromStore(102));
+      expect(userService.getUsers()[0]).toBe(storage.get(102));
       expect(userService.getUsers()[1].getId()).toBe(103);
-      expect(userService.getUsers()[1]).toBe(UserServiceHttp.getFromStore(103));
+      expect(userService.getUsers()[1]).toBe(storage.get(103));
       done();
     });
   });
@@ -29,7 +32,7 @@ describe('UserServiceBackend', () => {
     userService.fetch(() => {
       expect(userService.getUsers().length).toBe(1);
       expect(userService.getUsers()[0].getId()).toBe(100);
-      expect(userService.getUsers()[0]).toBe(UserServiceHttp.getFromStore(100));
+      expect(userService.getUsers()[0]).toBe(storage.get(100));
       done();
     });
   });
@@ -38,7 +41,7 @@ describe('UserServiceBackend', () => {
     userService.fetch(() => {
       expect(userService.getUsers().length).toBe(1);
       expect(userService.getUsers()[0].getId()).toBe(100);
-      expect(userService.getUsers()[0]).toBe(UserServiceHttp.getFromStore(100));
+      expect(userService.getUsers()[0]).toBe(storage.get(100));
       done();
     });
   });
@@ -54,7 +57,7 @@ describe('UserServiceBackend', () => {
     userService.fetch(() => {
       expect(userService.getUsers().length).toBe(1);
       expect(userService.getUsers()[0].getId()).toBe(103);
-      expect(userService.getUsers()[0]).toBe(UserServiceHttp.getFromStore(103));
+      expect(userService.getUsers()[0]).toBe(storage.get(103));
       done();
     });
   });

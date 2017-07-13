@@ -1,6 +1,7 @@
 import {UserServiceInterface} from './UserServiceInterface';
 import {UserEntityInterface} from '../Entities/UserEntityInterface';
 import {TSMap} from 'typescript-map';
+import {StorageEntitiesUser} from '../../StorageEntities/StorageEntitiesUser';
 
 export class UserService implements UserServiceInterface {
   static TYPE_LIKE = 'LIKE';
@@ -13,19 +14,7 @@ export class UserService implements UserServiceInterface {
   private static usersStore: TSMap <Number, UserEntityInterface> = new TSMap <Number, UserEntityInterface> ();
   private serviceName: String;
   private users: UserEntityInterface[] = [];
-  public static allFromStore () {
-    return UserService.usersStore.values();
-  }
-  public static getFromStore (id: Number) {
-    const entity = UserService.usersStore.get(id);
-    if (entity === undefined) {
-      return null;
-    }
-    return entity;
-  }
-  protected static addToStore (user: UserEntityInterface) {
-    UserService.usersStore.set(user.getId(), user);
-  }
+  protected storage: StorageEntitiesUser = new StorageEntitiesUser();
   constructor(serviceName: String, users: UserEntityInterface[]) {
     this.serviceName = serviceName;
     this.setUsers(users);
@@ -38,7 +27,7 @@ export class UserService implements UserServiceInterface {
   }
   addUser(user: UserEntityInterface) {
     this.users.push(user);
-    UserService.addToStore(user);
+    this.storage.add(user.getId(), user);
   }
   removeUser(user: UserEntityInterface) {
     this.users = this.users.filter((filterUser: UserEntityInterface) => {
@@ -47,9 +36,7 @@ export class UserService implements UserServiceInterface {
   }
   protected setUsers (users: UserEntityInterface[]) {
     users.map((user: UserEntityInterface) => {
-      if (UserService.getFromStore(user.getId()) === null) {
-        UserService.addToStore(user);
-      }
+      this.storage.add(user.getId(), user);
       this.users.push(user);
     });
   }
