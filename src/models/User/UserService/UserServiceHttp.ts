@@ -4,11 +4,12 @@ import {UserManager} from '../UserManager/UserManager';
 import {InfoManager} from '../../Info/InfoManager/InfoManager';
 import {PostManager} from '../../Post/PostManager/PostManager';
 import {FetchModelInterface} from '../../Fetch/FetchModelInterface';
+import {StorageEntitiesUser} from '../Storage/StorageEntitiesUser';
 
 export class UserServiceHttp extends UserService {
   protected fetchModel: FetchModelInterface;
-  constructor(serviceName: String, fetchModel: FetchModelInterface) {
-    super(serviceName, []);
+  constructor(serviceName: String, fetchModel: FetchModelInterface, storage: StorageEntitiesUser) {
+    super(serviceName, [], storage);
     this.fetchModel = fetchModel;
   }
   public getUrl () {

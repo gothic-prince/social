@@ -1,6 +1,6 @@
 import {InfoServiceInterface} from './InfoServiceInterface';
 import {InfoEntityInterface} from '../Entities/InfoEntityInterface';
-import {StorageEntitiesInfo} from '../../StorageEntities/StorageEntitiesInfo';
+import {StorageEntitiesInfo} from '../Storage/StorageEntitiesInfo';
 export class InfoService implements InfoServiceInterface {
   static CATEGORY_USERNAME = 'USERNAME';
   static CATEGORY_AGE = 'AGE';

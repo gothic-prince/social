@@ -4,7 +4,7 @@ import {AgeInfoFetchModel} from '../FetchModel/AgeInfoFetchModel';
 import {WebInfoFetchModel} from '../FetchModel/WebInfoFetchModel';
 import {PhoneInfoFetchModel} from 'models/Info/FetchModel/PhoneInfoFetchModel';
 import {AboutInfoFetchModel} from 'models/Info/FetchModel/AboutInfoFetchModel';
-import {StorageEntitiesInfo} from '../../StorageEntities/StorageEntitiesInfo';
+import {StorageEntitiesInfo} from '../Storage/StorageEntitiesInfo';
 describe('InfoServiceHttp', () => {
   const storage = new StorageEntitiesInfo();
   it('Should return service: USERNAME', (done) => {

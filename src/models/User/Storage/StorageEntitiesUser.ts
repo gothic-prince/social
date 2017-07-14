@@ -1,5 +1,5 @@
 import {TSMap} from 'typescript-map';
-import {UserEntityInterface} from '../User/Entities/UserEntityInterface';
+import {UserEntityInterface} from '../Entities/UserEntityInterface';
 export class StorageEntitiesUser {
   protected static users: TSMap<Number, UserEntityInterface> = new TSMap <Number, UserEntityInterface>();
   all (): TSMap<Number, UserEntityInterface> {

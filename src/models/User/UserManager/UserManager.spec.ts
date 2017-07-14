@@ -3,8 +3,10 @@ import {UserService} from '../UserService/UserService';
 import {UserEntity} from '../Entities/UserEntity';
 import {InfoManager} from '../../Info/InfoManager/InfoManager';
 import {PostManager} from '../../Post/PostManager/PostManager';
+import {StorageEntitiesUser} from '../Storage/StorageEntitiesUser';
 describe('UserManager', () => {
   const userManager = new UserManager();
+  const storage = new StorageEntitiesUser();
   const all = new UserService(UserService.TYPE_ALL, [
     new UserEntity(
       new UserManager(),
@@ -24,7 +26,7 @@ describe('UserManager', () => {
       new PostManager(),
       3
     )
-  ]);
+  ], storage);
   const online =  new UserService(UserService.TYPE_ONLINE, [
     new UserEntity(
       new UserManager(),
@@ -32,7 +34,7 @@ describe('UserManager', () => {
       new PostManager(),
       10
     ),
-  ]);
+  ], storage);
   const sub = new UserService(UserService.TYPE_SUBSCRIBERS, [
     new UserEntity(
       new UserManager(),
@@ -46,7 +48,7 @@ describe('UserManager', () => {
       new PostManager(),
       21
     )
-  ]);
+  ], storage);
   userManager.set([all, online, sub]);
   it('should return undefined', () => {
     expect(userManager.get(UserService.TYPE_FRIENDS)).toBe(undefined);

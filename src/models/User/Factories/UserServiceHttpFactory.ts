@@ -7,13 +7,14 @@ import {CurrentUserFetchModel} from '../FetchModel/CurrentUserFetchModel';
 import {FriendsUserFetchModel} from '../FetchModel/FriendsUserFetchModel';
 import {LikedUserFetchModel} from '../FetchModel/LikedUserFetchModel';
 import {SubscribersUserFetchModel} from '../FetchModel/SubscribersUserFetchModel';
+import {StorageEntitiesUser} from '../Storage/StorageEntitiesUser';
 export class UserServiceHttpFactory implements UserServiceHttpFactoryInterface {
   static CATEGORY_CURRENT = 'CURRENT';
   static CATEGORY_FRIENDS = 'FRIENDS';
   static CATEGORY_SUBSCRIBERS = 'SUBSCRIBERS';
   static CATEGORY_LIKES = 'LIKES';
   static CATEGORY_BLACKLIST = 'BLACKLIST';
-  getUserService(serviceName: String, id: Number): UserServiceInterface {
+  getUserService(serviceName: String, id: Number, storage: StorageEntitiesUser): UserServiceInterface {
     let fetchModel: FetchModelInterface;
     switch (serviceName) {
       case UserServiceHttpFactory.CATEGORY_CURRENT:
@@ -35,7 +36,7 @@ export class UserServiceHttpFactory implements UserServiceHttpFactoryInterface {
       default:
         return null;
     }
-    return new UserServiceHttp(serviceName, fetchModel);
+    return new UserServiceHttp(serviceName, fetchModel, storage);
   }
   getSuccessFunc(): any {
     return () => {};

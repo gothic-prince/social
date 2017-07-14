@@ -1,5 +1,5 @@
 import {StorageEntitiesUser} from './StorageEntitiesUser';
-import {UserEntity} from '../User/Entities/UserEntity';
+import {UserEntity} from '../Entities/UserEntity';
 describe('StorageEntitiesUser', () => {
   const storage = new StorageEntitiesUser();
   it('Should return 0', () => {

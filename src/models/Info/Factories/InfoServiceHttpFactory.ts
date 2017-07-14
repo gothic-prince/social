@@ -2,7 +2,7 @@ import {InfoServiceFactoryInterface} from './InfoServiceFactoryInterface';
 import {InfoServiceInterface} from '../InfoService/InfoServiceInterface';
 import {InfoServiceHttp} from '../InfoService/InfoServiceHttp';
 import {InfoFetchModelFactory} from 'models/Info/Factories/InfoFetchModelFactory';
-import {StorageEntitiesInfo} from '../../StorageEntities/StorageEntitiesInfo';
+import {StorageEntitiesInfo} from '../Storage/StorageEntitiesInfo';
 
 export class InfoServiceHttpFactory implements InfoServiceFactoryInterface {
   static CATEGORY_USERNAME = 'USERNAME';

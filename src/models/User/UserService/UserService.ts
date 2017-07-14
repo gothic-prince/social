@@ -1,8 +1,6 @@
 import {UserServiceInterface} from './UserServiceInterface';
 import {UserEntityInterface} from '../Entities/UserEntityInterface';
-import {TSMap} from 'typescript-map';
-import {StorageEntitiesUser} from '../../StorageEntities/StorageEntitiesUser';
-
+import {StorageEntitiesUser} from '../Storage/StorageEntitiesUser';
 export class UserService implements UserServiceInterface {
   static TYPE_LIKE = 'LIKE';
   static TYPE_ONLINE = 'ONLINE';
@@ -13,9 +11,10 @@ export class UserService implements UserServiceInterface {
   static TYPE_CURRENT = 'CURRENT';
   private serviceName: String;
   private users: UserEntityInterface[] = [];
-  protected storage: StorageEntitiesUser = new StorageEntitiesUser();
-  constructor(serviceName: String, users: UserEntityInterface[]) {
+  protected storage: StorageEntitiesUser;
+  constructor(serviceName: String, users: UserEntityInterface[], storage: StorageEntitiesUser) {
     this.serviceName = serviceName;
+    this.storage = storage;
     this.setUsers(users);
   }
   getName(): String {

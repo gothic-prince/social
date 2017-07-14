@@ -1,7 +1,7 @@
 import {InfoManager} from './InfoManager';
 import {InfoService} from '../InfoService/InfoService';
 import {InfoEntity} from '../Entities/InfoEntity';
-import {StorageEntitiesInfo} from '../../StorageEntities/StorageEntitiesInfo';
+import {StorageEntitiesInfo} from '../Storage/StorageEntitiesInfo';
 describe('InfoManager', () => {
   const infoManager = new InfoManager();
   const storage = new StorageEntitiesInfo();
@@ -51,3 +51,4 @@ describe('InfoManager', () => {
     });
   })
 });
+

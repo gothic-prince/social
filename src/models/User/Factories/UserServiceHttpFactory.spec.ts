@@ -1,9 +1,11 @@
 import {UserServiceHttpFactory} from './UserServiceHttpFactory';
 import {UserServiceHttp} from '../UserService/UserServiceHttp';
+import {StorageEntitiesUser} from '../Storage/StorageEntitiesUser';
 describe('UserServiceHttpFactory', () => {
   const factory = new UserServiceHttpFactory();
+  const storage = new StorageEntitiesUser();
   describe('Should return current user', () => {
-    const service = factory.getUserService(UserServiceHttpFactory.CATEGORY_CURRENT, null);
+    const service = factory.getUserService(UserServiceHttpFactory.CATEGORY_CURRENT, null, storage);
     it ('Should be instance of UserServiceHttp', () => {
       expect(service instanceof UserServiceHttp).toBe(true);
     });
@@ -14,7 +16,7 @@ describe('UserServiceHttpFactory', () => {
     });
   });
   describe('Should return friends', () => {
-    const service = factory.getUserService(UserServiceHttpFactory.CATEGORY_FRIENDS, 2873);
+    const service = factory.getUserService(UserServiceHttpFactory.CATEGORY_FRIENDS, 2873, storage);
     it ('Should be instance of UserServiceHttp', () => {
       expect(service instanceof UserServiceHttp).toBe(true);
     });
@@ -25,7 +27,7 @@ describe('UserServiceHttpFactory', () => {
     });
   });
   describe('Should return subscribers', () => {
-    const service = factory.getUserService(UserServiceHttpFactory.CATEGORY_SUBSCRIBERS, 1313);
+    const service = factory.getUserService(UserServiceHttpFactory.CATEGORY_SUBSCRIBERS, 1313, storage);
     it ('Should be instance of UserServiceHttp', () => {
       expect(service instanceof UserServiceHttp).toBe(true);
     });
@@ -36,7 +38,7 @@ describe('UserServiceHttpFactory', () => {
     });
   });
   describe('Should return likes', () => {
-    const service = factory.getUserService(UserServiceHttpFactory.CATEGORY_LIKES, 2412);
+    const service = factory.getUserService(UserServiceHttpFactory.CATEGORY_LIKES, 2412, storage);
     it ('Should be instance of UserServiceHttp', () => {
       expect(service instanceof UserServiceHttp).toBe(true);
     });
@@ -47,7 +49,7 @@ describe('UserServiceHttpFactory', () => {
     });
   });
   describe('Should return blacklist', () => {
-    const service = factory.getUserService(UserServiceHttpFactory.CATEGORY_BLACKLIST, 43512);
+    const service = factory.getUserService(UserServiceHttpFactory.CATEGORY_BLACKLIST, 43512, storage);
     it ('Should be instance of UserServiceHttp', () => {
       expect(service instanceof UserServiceHttp).toBe(true);
     });

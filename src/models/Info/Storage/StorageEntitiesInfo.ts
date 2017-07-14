@@ -1,5 +1,5 @@
 import {TSMap} from 'typescript-map';
-import {InfoEntityInterface} from '../Info/Entities/InfoEntityInterface';
+import {InfoEntityInterface} from '../Entities/InfoEntityInterface';
 export class StorageEntitiesInfo {
   protected static info: TSMap<Number, InfoEntityInterface> = new TSMap <Number, InfoEntityInterface>();
 
