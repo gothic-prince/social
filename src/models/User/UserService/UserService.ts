@@ -11,7 +11,6 @@ export class UserService implements UserServiceInterface {
   static TYPE_SUBSCRIBERS = 'SUBSCRIBERS';
   static TYPE_ALL = 'ALL';
   static TYPE_CURRENT = 'CURRENT';
-  private static usersStore: TSMap <Number, UserEntityInterface> = new TSMap <Number, UserEntityInterface> ();
   private serviceName: String;
   private users: UserEntityInterface[] = [];
   protected storage: StorageEntitiesUser = new StorageEntitiesUser();

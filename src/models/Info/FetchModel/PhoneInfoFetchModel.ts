@@ -1,23 +1,23 @@
 import {FetchModelAbstract} from '../../Fetch/FetchModelAbstract';
-export class SubscribersUserFetchModel extends FetchModelAbstract {
+export class PhoneInfoFetchModel extends FetchModelAbstract {
   protected id: Number;
   constructor(id: Number) {
     super();
     this.id = id;
   }
   public getUrlAll(): string {
-    return '/users/find/' + this.id + '/subscribers.json';
+    return '/info/all/' + this.id + '/phone.json';
   }
   public getUrlOne(): string {
-    return '/users/one/' + this.id + '/subscribers.json';
+    return '/info/get/' + this.id + '/phone.json';
   }
   public getUrlAdd(): string {
-    return '/users/add/subscriber.json';
+    return '/info/add/' + this.id + '/phone.json';
   }
   public getUrlRemove(): string {
-    return '/users/remove/subscriber.json';
+    return '/info/remove/' + this.id + '/phone.json';
   }
   public getUrlUpdate(): string {
-    return '/users/update/subscriber.json';
+    return '/info/update/' + this.id + '/phone.json';
   }
 }

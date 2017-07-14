@@ -8,6 +8,9 @@ export class LikedUserFetchModel extends FetchModelAbstract {
   public getUrlAll(): string {
     return '/users/find/' + this.id + '/likes.json';
   }
+  public getUrlOne(): string {
+    return '/users/get/' + this.id + '/likes.json';
+  }
   public getUrlAdd(): string {
     return '/users/add/like.json';
   }

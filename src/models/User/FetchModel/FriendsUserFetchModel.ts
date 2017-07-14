@@ -8,6 +8,9 @@ export class FriendsUserFetchModel extends FetchModelAbstract {
   public getUrlAll(): string {
     return '/users/find/' + this.id + '/friends.json';
   }
+  public getUrlOne(): string {
+    return '/users/get/' + this.id + '/friends.json';
+  }
   public getUrlAdd(): string {
     return '/users/add/friend.json';
   }

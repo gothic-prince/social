@@ -3,4 +3,6 @@ export interface InfoEntityInterface {
   setData (data: String[]);
   getLast (): String;
   getDate (): Date;
+  getId(): Number;
+  getUserId(): Number;
 }

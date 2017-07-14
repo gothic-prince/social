@@ -4,7 +4,7 @@ import {CurrentUserFetchModel} from '../FetchModel/CurrentUserFetchModel';
 import {FriendsUserFetchModel} from '../FetchModel/FriendsUserFetchModel';
 import {SubscribersUserFetchModel} from '../FetchModel/SubscribersUserFetchModel';
 import {StorageEntitiesUser} from 'models/StorageEntities/StorageEntitiesUser';
-describe('UserServiceBackend', () => {
+describe('UserServiceHttp', () => {
   const storage = new StorageEntitiesUser();
   storage.reset();
   it ('Should return current user: 100', (done) => {

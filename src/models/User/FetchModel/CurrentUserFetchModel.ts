@@ -3,6 +3,9 @@ export class CurrentUserFetchModel extends FetchModelAbstract {
   public getUrlAll(): string {
     return '/users/current.json';
   }
+  public getUrlOne(): string {
+    return null;
+  }
   public getUrlAdd(): string {
     return null;
   }

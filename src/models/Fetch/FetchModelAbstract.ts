@@ -12,11 +12,25 @@ export abstract class FetchModelAbstract implements FetchModelInterface {
   public abstract getUrlAdd(): string;
   public abstract getUrlRemove(): string;
   public abstract getUrlUpdate(): string;
-  public all (func: any) {
+  public abstract getUrlOne(): string;
+  public all (jsonToObjFunc: any, successFunc: any) {
+    this.fetch(this.getUrlAll(), (entities) => {
+      entities.map((entity) => {
+        jsonToObjFunc(entity);
+      })
+    }, successFunc);
+  }
+  get(jsonToObjFunc: any, successFunc: any) {
+    this.fetch(this.getUrlOne(), (json) => {
+      jsonToObjFunc(json);
+    }, successFunc);
+  }
+  protected fetch(url, jsonToObjOrArrayFunc, successFunc: any) {
     try {
-      fetch(this.getUrlAll()).then((data) => {
-        data.json().then((entities) => {
-          func(entities);
+      fetch(url).then((data) => {
+        data.json().then((json) => {
+          jsonToObjOrArrayFunc(json);
+          successFunc();
           this.fetched = true;
         }).catch(() => {
           this.getError()('ERROR: JsonParse');

@@ -1,32 +1,19 @@
-import {PostManager} from '../../Post/PostManager/PostManager';
 import {FetchModelInterface} from '../../Fetch/FetchModelInterface';
 import {InfoService} from './InfoService';
 import {InfoEntity} from '../Entities/InfoEntity';
-export class UserServiceHttp extends InfoService {
+export class InfoServiceHttp extends InfoService {
   protected fetchModel: FetchModelInterface;
   constructor(serviceName: String, fetchModel: FetchModelInterface) {
     super(serviceName, null);
     this.fetchModel = fetchModel;
   }
   public getUrl () {
-    return this.fetchModel.getUrlAll();
+    return this.fetchModel.getUrlOne();
   }
-  public fetch (succesFunc) {
-    this.fetchModel.all((entities) => {
-      this.jsonToObject(entities);
-      succesFunc();
-    });
-  }
-  protected jsonToObject (data) {
-    /*
-    this.setInfo();
-    const id: Number = data.id;
-    if (UserServiceHttp.getFromStore(id) === null) {
-      UserServiceHttp.addToStore(
-        new InfoEntity(data, id)
-      );
-    }
-    return UserServiceHttp.getFromStore(id);
-    */
+  public get (succesFunc) {
+    this.fetchModel.get((info) => {
+      const entity = new InfoEntity(info.data, new Date(info.created), info.id, info.userId);
+      this.setInfo(this.storage.add(entity.getId(), entity));
+    }, succesFunc);
   }
 }
