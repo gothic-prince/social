@@ -3,7 +3,7 @@ import {InfoManagerInterface} from '../../Info/InfoManager/InfoManagerInterface'
 import {FileManagerInterface} from '../../File/FileManager/FileManagerInterface';
 import {PostManagerInterface} from '../PostManager/PostManagerInterface';
 import {UserManagerInterface} from '../../User/UserManager/UserManagerInterface';
-
+// todo:  Me need remove UserManager, and set userId
 export class PostEntity implements PostEntityInterface {
   private date: Date;
   private id: Number = 0;

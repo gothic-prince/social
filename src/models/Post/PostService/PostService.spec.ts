@@ -5,13 +5,15 @@ import {PostManager} from '../PostManager/PostManager';
 import {UserManager} from '../../User/UserManager/UserManager';
 import {PostEntityInterface} from '../Entities/PostEntityInterface';
 import {PostEntity} from '../Entities/PostEntity';
+import {PostStorageEntities} from '../Storage/PostStorageEntities';
 describe('PostService', () => {
+  const storage = new PostStorageEntities();
   const info = new InfoManager();
   const file = new FileManager();
   const post = new PostManager();
   const user = new UserManager();
   const date = new Date();
-  const service = new PostService(PostService.CATEGORY_POST, []);
+  const service = new PostService(PostService.CATEGORY_POST, [], storage);
   it('Should return post category', () => {
     expect(service.getName()).toBe(PostService.CATEGORY_POST);
   });

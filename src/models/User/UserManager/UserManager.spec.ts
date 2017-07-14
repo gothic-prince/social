@@ -60,7 +60,7 @@ describe('UserManager', () => {
     it('should return 3 entities', () => {
       expect(userManager.get(UserService.TYPE_ALL).getUsers().length).toBe(3);
     });
-  })
+  });
   describe('Service: online', () => {
     it('should return instance of UserServiceInterface', () => {
       expect(userManager.get(UserService.TYPE_ONLINE)).toBe(online);
@@ -68,7 +68,7 @@ describe('UserManager', () => {
     it('should return 1 entities', () => {
       expect(userManager.get(UserService.TYPE_ONLINE).getUsers().length).toBe(1);
     });
-  })
+  });
   describe('Service: sub', () => {
     it('should return instance of UserServiceInterface', () => {
       expect(userManager.get(UserService.TYPE_SUBSCRIBERS)).toBe(sub);
