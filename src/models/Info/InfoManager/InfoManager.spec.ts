@@ -1,16 +1,24 @@
 import {InfoManager} from './InfoManager';
 import {InfoService} from '../InfoService/InfoService';
 import {InfoEntity} from '../Entities/InfoEntity';
+import {StorageEntitiesInfo} from '../../StorageEntities/StorageEntitiesInfo';
 describe('InfoManager', () => {
   const infoManager = new InfoManager();
+  const storage = new StorageEntitiesInfo();
   const phone = new InfoService(
-    InfoService.CATEGORY_PHONE, new InfoEntity(['2.394.172.940'], new Date(), 100000, 102)
+    InfoService.CATEGORY_PHONE,
+    new InfoEntity(['2.394.172.940'], new Date(), 100000, 102),
+    storage
   );
   const about = new InfoService(
-    InfoService.CATEGORY_ABOUT, new InfoEntity(['any story', 'store was edited'], new Date(), 100001, 102)
+    InfoService.CATEGORY_ABOUT,
+    new InfoEntity(['any story', 'store was edited'], new Date(), 100001, 102),
+    storage
   );
   const email = new InfoService(
-    InfoService.CATEGORY_EMAIL, new InfoEntity(['', 'alex@gmail.com', 'admin@mysite.org'], new Date(), 100002, 102)
+    InfoService.CATEGORY_EMAIL,
+    new InfoEntity(['', 'alex@gmail.com', 'admin@mysite.org'], new Date(), 100002, 102),
+    storage
   );
   infoManager.set([about, phone, email]);
   it('should return undefined', () => {

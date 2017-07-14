@@ -1,9 +1,11 @@
 import {InfoServiceHttpFactory} from 'models/Info/Factories/InfoServiceHttpFactory';
 import {InfoServiceHttp} from '../InfoService/InfoServiceHttp';
+import {StorageEntitiesInfo} from '../../StorageEntities/StorageEntitiesInfo';
 describe('InfoServiceHttpFactory', () => {
   const factory = new InfoServiceHttpFactory();
+  const storage = new StorageEntitiesInfo();
   describe('UsernameInfoFetchModel', () => {
-    const service = factory.getInfoService(InfoServiceHttpFactory.CATEGORY_USERNAME, 100);
+    const service = factory.getInfoService(InfoServiceHttpFactory.CATEGORY_USERNAME, 100, storage);
     it ('Should return serviceName "USERNAME"', () => {
       expect(service.getName()).toBe(InfoServiceHttpFactory.CATEGORY_USERNAME);
     })
@@ -16,7 +18,7 @@ describe('InfoServiceHttpFactory', () => {
     })
   });
   describe('EmailInfoFetchModel', () => {
-    const service = factory.getInfoService(InfoServiceHttpFactory.CATEGORY_EMAIL, 102);
+    const service = factory.getInfoService(InfoServiceHttpFactory.CATEGORY_EMAIL, 102, storage);
     it ('Should return serviceName "EMAIL"', () => {
       expect(service.getName()).toBe(InfoServiceHttpFactory.CATEGORY_EMAIL);
     })
@@ -29,7 +31,7 @@ describe('InfoServiceHttpFactory', () => {
     })
   });
   describe('WebInfoFetchModel', () => {
-    const service = factory.getInfoService(InfoServiceHttpFactory.CATEGORY_WEBSITE, 103);
+    const service = factory.getInfoService(InfoServiceHttpFactory.CATEGORY_WEBSITE, 103, storage);
     it ('Should return serviceName "WEB"', () => {
       expect(service.getName()).toBe(InfoServiceHttpFactory.CATEGORY_WEBSITE);
     })

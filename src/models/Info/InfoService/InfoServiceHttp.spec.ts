@@ -4,9 +4,11 @@ import {AgeInfoFetchModel} from '../FetchModel/AgeInfoFetchModel';
 import {WebInfoFetchModel} from '../FetchModel/WebInfoFetchModel';
 import {PhoneInfoFetchModel} from 'models/Info/FetchModel/PhoneInfoFetchModel';
 import {AboutInfoFetchModel} from 'models/Info/FetchModel/AboutInfoFetchModel';
+import {StorageEntitiesInfo} from '../../StorageEntities/StorageEntitiesInfo';
 describe('InfoServiceHttp', () => {
+  const storage = new StorageEntitiesInfo();
   it('Should return service: USERNAME', (done) => {
-    const service = new InfoServiceHttp(InfoServiceHttp.CATEGORY_USERNAME, new UsernameInfoFetchModel(100));
+    const service = new InfoServiceHttp(InfoServiceHttp.CATEGORY_USERNAME, new UsernameInfoFetchModel(100), storage);
     service.get(() => {
       expect(service.getName()).toBe(InfoServiceHttp.CATEGORY_USERNAME);
       expect(service.getInfo().getId()).toBe(100003);
@@ -16,7 +18,7 @@ describe('InfoServiceHttp', () => {
     });
   });
   it('Should return service: AGE', (done) => {
-    const service = new InfoServiceHttp(InfoServiceHttp.CATEGORY_AGE, new AgeInfoFetchModel(103));
+    const service = new InfoServiceHttp(InfoServiceHttp.CATEGORY_AGE, new AgeInfoFetchModel(103), storage);
     service.get(() => {
       expect(service.getName()).toBe(InfoServiceHttp.CATEGORY_AGE);
       expect(service.getInfo().getId()).toBe(100013);
@@ -28,7 +30,7 @@ describe('InfoServiceHttp', () => {
     });
   });
   it('Should return service: WEB', (done) => {
-    const service = new InfoServiceHttp(InfoServiceHttp.CATEGORY_WEBSITE, new WebInfoFetchModel(103));
+    const service = new InfoServiceHttp(InfoServiceHttp.CATEGORY_WEBSITE, new WebInfoFetchModel(103), storage);
     service.get(() => {
       expect(service.getName()).toBe(InfoServiceHttp.CATEGORY_WEBSITE);
       expect(service.getInfo().getId()).toBe(100017);
@@ -38,7 +40,7 @@ describe('InfoServiceHttp', () => {
     });
   });
   it('Should return service: PHONE', (done) => {
-    const service = new InfoServiceHttp(InfoServiceHttp.CATEGORY_PHONE, new PhoneInfoFetchModel(102));
+    const service = new InfoServiceHttp(InfoServiceHttp.CATEGORY_PHONE, new PhoneInfoFetchModel(102), storage);
     service.get(() => {
       expect(service.getName()).toBe(InfoServiceHttp.CATEGORY_PHONE);
       expect(service.getInfo().getId()).toBe(100010);
@@ -48,7 +50,7 @@ describe('InfoServiceHttp', () => {
     });
   });
   it('Should return service: ABOUT', (done) => {
-    const service = new InfoServiceHttp(InfoServiceHttp.CATEGORY_PHONE, new AboutInfoFetchModel(103));
+    const service = new InfoServiceHttp(InfoServiceHttp.CATEGORY_PHONE, new AboutInfoFetchModel(103), storage);
     service.get(() => {
       expect(service.getName()).toBe(InfoServiceHttp.CATEGORY_PHONE);
       expect(service.getInfo().getId()).toBe(100012);

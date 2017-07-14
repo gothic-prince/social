@@ -10,10 +10,11 @@ export class InfoService implements InfoServiceInterface {
   static CATEGORY_EMAIL = 'EMAIL';
   private serviceName: String;
   private info: InfoEntityInterface;
-  protected storage: StorageEntitiesInfo = new StorageEntitiesInfo();
-  constructor(serviceName: String, info: InfoEntityInterface) {
+  protected storage: StorageEntitiesInfo;
+  constructor(serviceName: String, info: InfoEntityInterface, storage: StorageEntitiesInfo) {
     this.serviceName = serviceName;
     this.info = info;
+    this.storage = storage;
   }
   getName(): String {
     return this.serviceName;
