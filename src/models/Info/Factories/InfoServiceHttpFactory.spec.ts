@@ -15,7 +15,7 @@ describe('InfoServiceHttpFactory', () => {
       expect(url).toBe('/info/get/100/name.json');
     })
   });
-  describe('UsernameInfoFetchModel', () => {
+  describe('EmailInfoFetchModel', () => {
     const service = factory.getInfoService(InfoServiceHttpFactory.CATEGORY_EMAIL, 102);
     it ('Should return serviceName "EMAIL"', () => {
       expect(service.getName()).toBe(InfoServiceHttpFactory.CATEGORY_EMAIL);
@@ -28,7 +28,7 @@ describe('InfoServiceHttpFactory', () => {
       expect(url).toBe('/info/get/102/email.json');
     })
   });
-  describe('UsernameInfoFetchModel', () => {
+  describe('WebInfoFetchModel', () => {
     const service = factory.getInfoService(InfoServiceHttpFactory.CATEGORY_WEBSITE, 103);
     it ('Should return serviceName "WEB"', () => {
       expect(service.getName()).toBe(InfoServiceHttpFactory.CATEGORY_WEBSITE);
