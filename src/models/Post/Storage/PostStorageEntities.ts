@@ -14,6 +14,9 @@ export class PostStorageEntities {
     }
     return this.get(id);
   }
+  remove (entity: PostEntityInterface) {
+    this.posts.delete(entity.getId());
+  }
   reset() {
     this.posts = new TSMap <Number, PostEntityInterface>();
   }
