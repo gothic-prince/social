@@ -2,18 +2,11 @@ import {PostServiceInterface} from './PostServiceInterface';
 import {PostEntityInterface} from '../Entities/PostEntityInterface';
 import {PostStorageEntities} from '../Storage/PostStorageEntities';
 export class PostService implements PostServiceInterface {
-  static CATEGORY_COMMENTS = 'COMMENTS'
-  static CATEGORY_POST = 'POST'
   static CATEGORY_ALBUM = 'ALBUM'
-  static CATEGORY_OUTGOING_MESSAGE = 'OUTGOING_MESSAGE'
-  static CATEGORY_INCOMMING_MESSAGE = 'INCOMMING_MESSAGE'
-  static CATEGORY_BLACKLIST_MESSAGE = 'BLACKLIST_MESSAGE'
-
-  static CATEGORY_GROUP_MESSAGE = 'GROUP_MESSAGE'
-  static CATEGORY_ITEM_MESSAGE = 'ITEM_MESSAGE'
-  // GROUP_MESSAGE  --> ITEM_MESSAGE
-  // COMMENTS       --> ITEM_MESSAGE
-  // ALBUM          --> ITEM_MESSAGE
+  static CATEGORY_COMMENTS = 'COMMENTS'
+  static CATEGORY_CONFERENCE = 'CONFERENCE'
+  static CATEGORY_POSTS = 'POSTS'
+  static CATEGORY_ITEMS = 'ITEMS'
   private serviceName: String;
   private posts: PostEntityInterface[] = [];
   protected storage: PostStorageEntities;

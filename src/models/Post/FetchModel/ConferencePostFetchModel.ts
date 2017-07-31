@@ -1,12 +1,12 @@
 import {FetchModelAbstract} from '../../Fetch/FetchModelAbstract';
 export class ConferencePostFetchModel extends FetchModelAbstract {
-  protected userId: Number;
+  protected id: Number;
   constructor(userId: Number) {
     super();
-    this.userId = userId;
+    this.id = userId;
   }
   public getUrlAll(): string {
-    return '/users/posts/' + this.userId + '/conferences.json';
+    return '/users/posts/' + this.id + '/conferences.json';
   }
   public getUrlAdd(): string {
     return '';

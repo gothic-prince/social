@@ -1,12 +1,12 @@
 import {FetchModelAbstract} from '../../Fetch/FetchModelAbstract';
 export class NewsPostFetchModel extends FetchModelAbstract {
-  protected postId: Number;
+  protected id: Number;
   constructor(postId: Number) {
     super();
-    this.postId = postId;
+    this.id = postId;
   }
   public getUrlAll(): string {
-    return '/users/posts/' + this.postId + '/news.json';
+    return '/users/posts/' + this.id + '/news.json';
   }
   public getUrlAdd(): string {
     return '';

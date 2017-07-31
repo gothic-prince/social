@@ -1,12 +1,12 @@
 import {FetchModelAbstract} from '../../Fetch/FetchModelAbstract';
-export class MessagePostFetchModel extends FetchModelAbstract {
+export class CommentsPostFetchModel extends FetchModelAbstract {
   protected id: Number;
   constructor(postId: Number) {
     super();
     this.id = postId;
   }
   public getUrlAll(): string {
-    return '';
+    return '/posts/comments/' + this.id + '.json';
   }
   public getUrlAdd(): string {
     return '';
@@ -18,6 +18,6 @@ export class MessagePostFetchModel extends FetchModelAbstract {
     return '';
   }
   public getUrlOne(): string {
-    return '/posts/get/' + this.id + '.json';
+    return '';
   }
 }

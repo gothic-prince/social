@@ -13,9 +13,9 @@ describe('PostService', () => {
   const post = new PostManager();
   const user = new UserManager();
   const date = new Date();
-  const service = new PostService(PostService.CATEGORY_POST, [], storage);
+  const service = new PostService(PostService.CATEGORY_POSTS, [], storage);
   it('Should return post category', () => {
-    expect(service.getName()).toBe(PostService.CATEGORY_POST);
+    expect(service.getName()).toBe(PostService.CATEGORY_POSTS);
   });
   it ('Should return 0 posts', () => {
     expect(service.all().length).toBe(0);
