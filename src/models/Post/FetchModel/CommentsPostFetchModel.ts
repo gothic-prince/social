@@ -1,5 +1,4 @@
 import {FetchModelAbstract} from '../../Fetch/FetchModelAbstract';
-// todo: Should be deleted
 export class CommentsPostFetchModel extends FetchModelAbstract {
   protected id: Number;
   constructor(postId: Number) {
