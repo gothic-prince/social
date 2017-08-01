@@ -27,13 +27,13 @@ describe('PostServiceHttpFactory', () => {
     });
   });
   describe('Should return comments', () => {
-    const service = factory.get(PostServiceHttpFactory.CATEGORY_COMMENTS, 100011, storage);
+    const service = factory.get(PostServiceHttpFactory.CATEGORY_COMMENTS, 100, storage);
     it ('Should be instance of PostServiceHttp', () => {
       expect(service instanceof PostServiceHttp).toBe(true);
     });
-    it ('Should return url: /posts/comments/100011.json', () => {
+    it ('Should return url: /users/find/100/comments.json', () => {
       if (service instanceof PostServiceHttp) {
-        expect(service.getFetchModel().getUrlAll()).toBe('/posts/comments/100011.json');
+        expect(service.getFetchModel().getUrlAll()).toBe('/users/find/100/comments.json');
       }
     });
   });

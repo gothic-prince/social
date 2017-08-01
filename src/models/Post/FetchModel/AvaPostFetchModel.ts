@@ -1,13 +1,12 @@
 import {FetchModelAbstract} from '../../Fetch/FetchModelAbstract';
-// todo: Should be deleted
-export class CommentsPostFetchModel extends FetchModelAbstract {
+export class AvaPostFetchModel extends FetchModelAbstract {
   protected id: Number;
   constructor(postId: Number) {
     super();
     this.id = postId;
   }
   public getUrlAll(): string {
-    return '/users/find/' + this.id + '/comments.json';
+    return '/users/find/' + this.id + '/ava.json';
   }
   public getUrlAdd(): string {
     return '';

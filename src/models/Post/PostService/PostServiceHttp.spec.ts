@@ -82,4 +82,13 @@ describe('PostServiceHttp', () => {
       done();
     });
   });
+  // todo: alb
+  // it ('Should return album of user with id 100', (done) => {});
+  // it ('Should return album of user with id 102', (done) => {});
+  // it ('Should return album of user with id 103', (done) => {});
+
+  // todo: ava
+  // it ('Should return ava of user with id 100', (done) => {});
+  // it ('Should return ava of user with id 102', (done) => {});
+  // it ('Should return ava of user with id 103', (done) => {});
 });
