@@ -36,17 +36,50 @@ describe('PostServiceHttp', () => {
       });
     }
   });
-  /*
-  it ('Should return message of user with id 100', (done) => {
+  it ('Should return post of user with id 100', (done) => {
     const service = factory.get(PostServiceHttpFactory.CATEGORY_POSTS, 100, storage);
-    if (service instanceof PostServiceHttp) {
-      service.fetch(() => {
-        expect(service.all().length).toBe(1);
-        expect(service.all()[0].getId()).toBe(100);
-        expect(service.all()[0]).toBe(storage.get(100));
-        done();
-      });
-    }
+    service.fetch(() => {
+      expect(service.all().length).toBe(1);
+      expect(service.all()[0].getId()).toBe(100009);
+      // todo: Should return user with id 100
+      // expect(service.all()[0].getUserManager().get('[AUTHOR]').getUsers().length).toBe(1);
+      // expect(service.all()[0].getUserManager().get('[AUTHOR]').getUsers()[0].getId()).toBe(100);
+      // todo: Should return comments
+      // expect(service.all()[0].getPostManager().get('[comments]').all().length).toBe(4);
+      // todo: Check each item by id and text
+      done();
+    });
   });
-  */
+  it ('Should return post of user with id 102', (done) => {
+    const service = factory.get(PostServiceHttpFactory.CATEGORY_POSTS, 102, storage);
+    service.fetch(() => {
+      expect(service.all().length).toBe(3);
+      expect(service.all()[0].getId()).toBe(100010);
+      expect(service.all()[1].getId()).toBe(100011);
+      expect(service.all()[2].getId()).toBe(100012);
+      // todo: Should return user with id 102
+      // expect(service.all()[0].getUserManager().get('[AUTHOR]').getUsers().length).toBe(1);
+      // expect(service.all()[0].getUserManager().get('[AUTHOR]').getUsers()[0].getId()).toBe(102);
+      // todo: Should return comments
+      // expect(service.all()[0].getPostManager().get('[comments]').all().length).toBe(0);
+      // expect(service.all()[1].getPostManager().get('[comments]').all().length).toBe(0);
+      // expect(service.all()[2].getPostManager().get('[comments]').all().length).toBe(1);
+      // todo: Check each item by id and text
+      done();
+    });
+  });
+  it ('Should return post of user with id 103', (done) => {
+    const service = factory.get(PostServiceHttpFactory.CATEGORY_POSTS, 103, storage);
+    service.fetch(() => {
+      expect(service.all().length).toBe(1);
+      expect(service.all()[0].getId()).toBe(100013);
+      // todo: Should return user with id 103
+      // expect(service.all()[0].getUserManager().get('[AUTHOR]').getUsers().length).toBe(1);
+      // expect(service.all()[0].getUserManager().get('[AUTHOR]').getUsers()[0].getId()).toBe(103);
+      // todo: Should return comments
+      // expect(service.all()[0].getPostManager().get('[comments]').all().length).toBe(0);
+      // todo: Check each item by id and text
+      done();
+    });
+  });
 });
