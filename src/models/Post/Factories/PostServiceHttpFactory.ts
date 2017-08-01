@@ -23,7 +23,7 @@ export class PostServiceHttpFactory {
     }
     return PostServiceHttpFactory.models;
   }
-  get (serviceName: String, id: Number, storage: PostStorageEntities): PostServiceInterface {
+  get (serviceName: String, id: Number, storage: PostStorageEntities): PostServiceHttp {
     const fetchModel = PostServiceHttpFactory.getMap().get(serviceName);
     if (fetchModel !== undefined) {
       const fetchModelCloned = Object.assign(fetchModel, {id: id});
