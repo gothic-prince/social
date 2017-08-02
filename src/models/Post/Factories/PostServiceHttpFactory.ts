@@ -8,13 +8,21 @@ import {PostServiceHttp} from '../PostService/PostServiceHttp';
 import {PostStorageEntities} from '../Storage/PostStorageEntities';
 import {AlbumPostFetchModel} from '../FetchModel/AlbumPostFetchModel';
 import {AvaPostFetchModel} from 'models/Post/FetchModel/AvaPostFetchModel';
+import {
+  POST_COMMENTS,
+  POST_ALBUM,
+  POST_AVA,
+  POST_CONFERENCE,
+  POST_MESSAGE,
+  POST_POSTS
+} from '../PostService/Constants'
 export class PostServiceHttpFactory {
-  public static CATEGORY_COMMENTS = 'COMMENTS';
-  public static CATEGORY_CONFERENCE = 'CONFERENCE';
-  public static CATEGORY_MESSAGE = 'MESSAGE';
-  public static CATEGORY_POSTS = 'POSTS';
-  public static CATEGORY_ALBUM = 'ALBUM';
-  public static CATEGORY_AVA = 'AVA';
+  public static CATEGORY_COMMENTS = POST_COMMENTS;
+  public static CATEGORY_CONFERENCE = POST_CONFERENCE;
+  public static CATEGORY_MESSAGE = POST_MESSAGE;
+  public static CATEGORY_POSTS = POST_POSTS;
+  public static CATEGORY_ALBUM = POST_ALBUM;
+  public static CATEGORY_AVA = POST_AVA;
   protected static models: TSMap <String, FetchModelInterface> = null;
   protected static getMap (): TSMap <String, FetchModelInterface> {
     if (PostServiceHttpFactory.models === null) {
